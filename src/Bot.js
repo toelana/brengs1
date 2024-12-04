@@ -30,11 +30,11 @@ class Bot {
   }
 
   async connectToProxy(proxy, userID) {
-    const formattedProxy = proxy.startsWith('socks5://')
+    const formattedProxy = proxy.startsWith('http://')
       ? proxy
       : proxy.startsWith('http')
       ? proxy
-      : `socks5://${proxy}`;
+      : `http://${proxy}`;
     const proxyInfo = await this.getProxyIP(formattedProxy);
 
     if (!proxyInfo) {
